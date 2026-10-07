@@ -5,7 +5,7 @@
 
 *High-precision tools calibrated for seamless daily workflow.*
 
-![Intervention Banner](./Intervention/Intervention.png)
+![Intervention Banner](./Intervention.png)
 
 [![100% Client-Side](https://img.shields.io/badge/Privacy-100%25%20Client--Side-brightgreen)](#)
 [![Zero Telemetry](https://img.shields.io/badge/Telemetry-Zero-blue)](#)
