@@ -1,0 +1,370 @@
+/* ==========================================================================
+   VCurrency — Virtual Currency / Crypto Tracker Stylesheet
+   Comfyppuccin Design: Sky/Sapphire accents, blockchain metrics,
+   crypto converter, market dominance ranking, and Chart.js timeline.
+   ========================================================================== */
+
+.vcurrency-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1.75rem 1.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header */
+.vcurrency-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-vcurrency-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--cp-sky), var(--cp-sapphire));
+  color: #11111b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(137, 220, 235, 0.25);
+}
+
+.vcurrency-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+}
+
+.vcurrency-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Highlight Crypto Cards Grid */
+.crypto-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.crypto-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.crypto-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+}
+
+.crypto-card.btc-card {
+  border-color: rgba(250, 179, 135, 0.45);
+  background: linear-gradient(135deg, var(--bg-card) 60%, rgba(250, 179, 135, 0.08) 100%);
+}
+
+.crypto-card.eth-card {
+  border-color: rgba(180, 190, 254, 0.45);
+  background: linear-gradient(135deg, var(--bg-card) 60%, rgba(180, 190, 254, 0.08) 100%);
+}
+
+.crypto-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.crypto-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.crypto-change {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.change-up {
+  background: rgba(166, 227, 161, 0.15);
+  color: var(--cp-green);
+}
+
+.change-down {
+  background: rgba(243, 139, 168, 0.15);
+  color: var(--cp-red);
+}
+
+.crypto-price {
+  font-size: 1.55rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+}
+
+.crypto-fiat-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Two-Column Grid */
+.v-analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.v-card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.v-box-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.v-converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.v-amount-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.v-amount-field:focus {
+  border-color: var(--cp-sky);
+}
+
+.v-currencies-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.v-currency-select-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.v-currency-select-col label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.v-btn-swap {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  transition: all 0.18s ease;
+}
+
+.v-btn-swap:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cp-sky);
+  color: var(--cp-sky);
+  transform: rotate(180deg);
+}
+
+.v-conversion-result-box {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.v-result-calc-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.v-result-calc-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cp-sky);
+}
+
+/* Crypto Ranking Leaderboard */
+.v-leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.v-leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+}
+
+.v-crypto-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.v-rank-number {
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-dim);
+  width: 20px;
+}
+
+.v-coin-symbol {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+.v-coin-name {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-left: 0.35rem;
+}
+
+.v-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: 9999px;
+  overflow: hidden;
+  max-width: 130px;
+}
+
+.v-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--cp-sky), var(--cp-sapphire));
+}
+
+.v-price-val {
+  font-size: 0.84rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+  min-width: 75px;
+  text-align: right;
+}
+
+/* Timeline Chart */
+.v-timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.v-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.v-timeframe-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.v-time-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.v-time-btn.active {
+  background: var(--bg-card);
+  color: var(--cp-sky);
+  box-shadow: var(--shadow-sm);
+}
+
+.v-chart-wrapper {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .v-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

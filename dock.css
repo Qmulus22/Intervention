@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Intervention — Collapsible Left Dock Sidebar
+   (Only displayed on tool pages: Chrono Scheduler & Conver Falter)
+   ========================================================================== */
+
+.app-layout-with-dock {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Dock Container */
+.left-dock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 72px; /* Collapsed width */
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0.75rem;
+  z-index: 900;
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  overflow-x: hidden;
+}
+
+/* Expanded state */
+.left-dock.expanded {
+  width: 240px;
+}
+
+/* Main content wrapper pushes with dock */
+.dock-main-content {
+  flex: 1;
+  margin-left: 72px;
+  transition: margin-left 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
+}
+
+.left-dock.expanded ~ .dock-main-content {
+  margin-left: 240px;
+}
+
+/* Dock Header */
+.dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1rem;
+}
+
+.dock-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+.dock-brand-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--cp-mauve), var(--cp-lavender));
+  color: #11111b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 10px var(--accent-glow);
+}
+
+.dock-brand-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.left-dock.expanded .dock-brand-name {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Dock Navigation List */
+.dock-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.dock-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.18s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.dock-nav-item:hover {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+}
+
+.dock-nav-item.active {
+  background-color: var(--bg-card);
+  color: var(--accent-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--accent-primary);
+}
+
+.dock-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-label {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+
+.left-dock.expanded .dock-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Dock Footer */
+.dock-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.dock-toggle-btn {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  border-radius: 10px;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.dock-toggle-btn:hover {
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  border-color: var(--border-hover);
+}
+
+.dock-toggle-icon {
+  transition: transform 0.25s ease;
+}
+
+.left-dock.expanded .dock-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Tooltip on collapsed dock hover */
+.left-dock:not(.expanded) .dock-nav-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 12px);
+  background-color: var(--cp-crust);
+  color: var(--cp-text);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%) translateX(-6px);
+  top: 50%;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-subtle);
+  z-index: 1000;
+}
+
+.left-dock:not(.expanded) .dock-nav-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .left-dock {
+    width: 60px;
+    padding: 0.75rem 0.5rem;
+  }
+  .dock-main-content {
+    margin-left: 60px;
+  }
+  .left-dock.expanded {
+    width: 200px;
+  }
+  .left-dock.expanded ~ .dock-main-content {
+    margin-left: 60px; /* Do not shift content completely offscreen on small phones */
+  }
+}
+

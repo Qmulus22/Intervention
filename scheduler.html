@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrono Scheduler — Intervention</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="scheduler.css">
+</head>
+<body>
+  <div class="app-layout-with-dock">
+    <!-- Collapsible Left Dock (Visible on tool pages) -->
+    <aside id="appDock" class="left-dock" aria-label="Tool Navigation Dock">
+      <div class="dock-header">
+        <a href="index.html" class="dock-brand" title="Intervention Hub">
+          <div class="dock-brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <line x1="12" y1="2.5" x2="12" y2="7"></line>
+              <line x1="12" y1="17" x2="12" y2="21.5"></line>
+              <line x1="2.5" y1="12" x2="7" y2="12"></line>
+              <line x1="17" y1="12" x2="21.5" y2="12"></line>
+              <circle cx="12" cy="12" r="0.9" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <span class="dock-brand-name">Intervention</span>
+        </a>
+      </div>
+
+      <nav class="dock-nav">
+        <!-- 1. Home Hub -->
+        <a href="index.html" class="dock-nav-item" data-tooltip="Home Hub">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Home</span>
+        </a>
+
+        <!-- 2. Chrono Scheduler (Active) -->
+        <a href="scheduler.html" class="dock-nav-item active" data-tooltip="Chrono Scheduler">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Chrono Scheduler</span>
+        </a>
+
+        <!-- 3. Reformat -->
+        <a href="reformat.html" class="dock-nav-item" data-tooltip="Reformat">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Reformat</span>
+        </a>
+
+        <!-- 4. Vanish -->
+        <a href="vanish.html" class="dock-nav-item" data-tooltip="Vanish (Bg Remover)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m4.93 4.93 4.24 4.24"></path>
+              <path d="m14.83 14.83 4.24 4.24"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+          </div>
+          <span class="dock-label">Vanish</span>
+        </a>
+
+        <!-- 5. Currency -->
+        <a href="currency.html" class="dock-nav-item" data-tooltip="Currency (Fiat)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <span class="dock-label">Currency</span>
+        </a>
+
+        <!-- 6. VCurrency -->
+        <a href="vcurrency.html" class="dock-nav-item" data-tooltip="VCurrency (Crypto)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.907 1.042l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H5.86m6.74-7.852c4.348.766 5.423-5.316 1.075-6.082m-1.075 6.082L6.693 10.15m5.907 1.043l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H6.693"></path>
+            </svg>
+          </div>
+          <span class="dock-label">VCurrency</span>
+        </a>
+      </nav>
+
+      <div class="dock-footer">
+        <!-- Theme Toggle in Dock -->
+        <button id="dockThemeBtn" class="dock-toggle-btn" title="Toggle Comfyppuccin Mocha/Latte" aria-label="Toggle Theme">
+          <svg class="theme-icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Dock Expand / Shrink Button -->
+        <button id="dockToggleBtn" class="dock-toggle-btn" title="Expand or shrink dock" aria-label="Toggle Dock">
+          <svg class="dock-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Scheduler Content -->
+    <div class="dock-main-content">
+      <div class="scheduler-container">
+        <!-- Header -->
+        <header class="app-header">
+          <div class="brand-group">
+            <div class="brand-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h1 class="brand-title">Chrono Scheduler</h1>
+              <p class="brand-subtitle">Intervention &bull; Harmonic Time & Approaching Alerts</p>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <!-- Live Clock -->
+            <div class="live-clock" id="liveClock" title="Current Time">
+              <span class="clock-time">--:--:--</span>
+              <span class="clock-date">---</span>
+            </div>
+
+            <!-- Audio Controls -->
+            <div class="audio-controls-group">
+              <button id="testAudioBtn" class="btn btn-icon" title="Test Notification Chime">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <span>Test Chime</span>
+              </button>
+              <button id="toggleSoundBtn" class="btn btn-icon btn-sound-active" title="Mute / Unmute Notifications">
+                <svg id="soundIconOn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <svg id="soundIconOff" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                  <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <!-- New Task Button -->
+            <button id="openNewTaskBtn" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Schedule Task</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Metrics Grid -->
+        <section class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-label">All Tasks</span>
+            <span class="metric-value" id="statTotal">0</span>
+          </div>
+          <div class="metric-card alert-card">
+            <span class="metric-label">Due Soon (<span id="leadTimeDisplay">5m</span>)</span>
+            <span class="metric-value" id="statDueSoon">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Today's Tasks</span>
+            <span class="metric-value" id="statToday">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Completed</span>
+            <span class="metric-value" id="statCompleted">0</span>
+          </div>
+        </section>
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search tasks, tags, notes...">
+            <button id="clearSearchBtn" class="clear-btn hidden">&times;</button>
+          </div>
+
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="due-soon">
+              Due Soon
+              <span class="badge-count hidden" id="badgeDueSoon">0</span>
+            </button>
+            <button class="filter-btn" data-filter="today">Today</button>
+            <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+            <button class="filter-btn" data-filter="completed">Done</button>
+            <button class="filter-btn" data-filter="overdue">Overdue</button>
+          </div>
+
+          <div class="sort-group">
+            <label for="sortSelect">Sort:</label>
+            <select id="sortSelect" class="form-select select-compact">
+              <option value="time-asc">Time (Soonest)</option>
+              <option value="time-desc">Time (Latest)</option>
+              <option value="priority-desc">Priority (High to Low)</option>
+              <option value="title-asc">Title (A-Z)</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Sound Alert Banner -->
+        <div id="alarmBanner" class="alarm-banner hidden">
+          <div class="alarm-banner-content">
+            <div class="alarm-pulse-dot"></div>
+            <div class="alarm-banner-text">
+              <strong id="alarmBannerTitle">Task Alert</strong>
+              <span id="alarmBannerSub">Scheduled time approaching</span>
+            </div>
+          </div>
+          <div class="alarm-banner-actions">
+            <button id="dismissAlarmBtn" class="btn btn-sm btn-outline">Dismiss</button>
+            <button id="snoozeAlarmBtn" class="btn btn-sm btn-primary">+5m Snooze</button>
+          </div>
+        </div>
+
+        <!-- Task List Container -->
+        <main class="tasks-main">
+          <div id="taskList" class="task-list"></div>
+
+          <!-- Empty State -->
+          <div id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 id="emptyTitle">No scheduled tasks</h3>
+            <p id="emptySubtitle">Organize your flow with comfortable sound alerts.</p>
+            <button id="emptyCreateBtn" class="btn btn-primary">Schedule First Task</button>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+          <div>
+            <span>Chrono Scheduler &bull; Intervention Suite</span>
+          </div>
+          <div class="footer-right">
+            <button id="clearCompletedBtn" class="btn btn-link">Clear Completed</button>
+            <button id="resetDemoBtn" class="btn btn-link">Load Demo Tasks</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create / Edit Task Modal -->
+  <div id="taskModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modalHeading" class="modal-title">Schedule New Task</h2>
+        <button id="closeModalBtn" class="btn-icon" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="taskForm" class="task-form">
+        <input type="hidden" id="taskId">
+
+        <div class="form-group">
+          <label for="taskTitle" class="form-label">Task Title <span class="required">*</span></label>
+          <input type="text" id="taskTitle" class="form-input" placeholder="e.g. Design review meeting, Medication, Client call" required autofocus>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskDate" class="form-label">Date <span class="required">*</span></label>
+            <input type="date" id="taskDate" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="taskTime" class="form-label">Time <span class="required">*</span></label>
+            <input type="time" id="taskTime" class="form-input" required>
+          </div>
+        </div>
+
+        <!-- Quick Time Presets -->
+        <div class="quick-presets">
+          <span style="font-size: 0.74rem; color: var(--text-dim); font-weight: 600;">Quick Set:</span>
+          <button type="button" class="preset-chip" data-preset="15m">+15 min</button>
+          <button type="button" class="preset-chip" data-preset="30m">+30 min</button>
+          <button type="button" class="preset-chip" data-preset="1h">+1 hr</button>
+          <button type="button" class="preset-chip" data-preset="tomorrow-9">Tomorrow 9:00 AM</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskLeadTime" class="form-label">
+              Early Sound Notification
+              <span class="info-badge">Approaching Alert</span>
+            </label>
+            <select id="taskLeadTime" class="form-select">
+              <option value="1">1 minute before</option>
+              <option value="2">2 minutes before</option>
+              <option value="5" selected>5 minutes before (Recommended)</option>
+              <option value="10">10 minutes before</option>
+              <option value="15">15 minutes before</option>
+              <option value="0">At exact schedule time only</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="taskSoundTone" class="form-label">Harmonic Chime</label>
+            <select id="taskSoundTone" class="form-select">
+              <option value="modern-crystal">Modern Crystal Chime</option>
+              <option value="soft-bell">Gentle Bell</option>
+              <option value="subtle-pulse">Subtle Marimba Pulse</option>
+              <option value="alert-ping">Clean Alert Ping</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskPriority" class="form-label">Priority</label>
+            <select id="taskPriority" class="form-select">
+              <option value="low">Low Priority</option>
+              <option value="medium" selected>Medium Priority</option>
+              <option value="high">High Priority</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="taskCategory" class="form-label">Category / Tag</label>
+            <input type="text" id="taskCategory" class="form-input" list="categorySuggestions" placeholder="e.g. Work, Focus, Meeting, Personal">
+            <datalist id="categorySuggestions">
+              <option value="Work">
+              <option value="Focus">
+              <option value="Meeting">
+              <option value="Personal">
+              <option value="Health">
+              <option value="Deadline">
+            </datalist>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="taskNotes" class="form-label">Notes (Optional)</label>
+          <textarea id="taskNotes" class="form-textarea" rows="2" placeholder="Add links, agenda, or reminders..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelModalBtn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" id="saveTaskBtn" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span id="saveBtnText">Schedule Task</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card modal-compact">
+      <div class="modal-header">
+        <h3 class="modal-title">Delete Task</h3>
+        <button id="closeDeleteModalBtn" class="btn-icon">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+        Are you sure you want to delete <strong id="deleteTaskTitle" style="color: var(--text-main);">this task</strong>?
+      </p>
+      <div class="modal-actions">
+        <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+        <button id="confirmDeleteBtn" class="btn btn-danger">Delete Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="dock.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

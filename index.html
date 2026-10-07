@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intervention — Tactical Productivity & Utilities Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="home-container">
+    <!-- Top Header -->
+    <header class="home-header">
+      <div class="home-brand-group">
+        <!-- CheyTac M200 Intervention Precision Sniper Reticle Icon -->
+        <div class="home-logo-box" title="CheyTac M200 Intervention Reticle">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Outer scope optic ring -->
+            <circle cx="12" cy="12" r="9.5"></circle>
+            <!-- Inner precision circle -->
+            <circle cx="12" cy="12" r="4" stroke-dasharray="2 1.5"></circle>
+            <!-- Crosshairs -->
+            <line x1="12" y1="2.5" x2="12" y2="7.5"></line>
+            <line x1="12" y1="16.5" x2="12" y2="21.5"></line>
+            <line x1="2.5" y1="12" x2="7.5" y2="12"></line>
+            <line x1="16.5" y1="12" x2="21.5" y2="12"></line>
+            <!-- Mil-dot elevation / windage hashmarks -->
+            <line x1="10.5" y1="5" x2="13.5" y2="5"></line>
+            <line x1="10.5" y1="19" x2="13.5" y2="19"></line>
+            <line x1="5" y1="10.5" x2="5" y2="13.5"></line>
+            <line x1="19" y1="10.5" x2="19" y2="13.5"></line>
+            <!-- Rangefinder chevron / center dot -->
+            <circle cx="12" cy="12" r="0.9" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div>
+          <h1 class="home-title">
+            Intervention
+            <span class="m200-tag"> m200/span>
+          </h1>
+          <p class="home-subtitle">Modern Comfyppuccin Productivity & Utilities Hub</p>
+        </div>
+      </div>
+
+      <div class="home-header-right">
+        <!-- Live Clock -->
+        <div class="home-clock">
+          <span class="home-clock-time" id="homeClockTime">--:--:--</span>
+          <span class="home-clock-date" id="homeClockDate">---</span>
+        </div>
+
+        <!-- Comfyppuccin Theme Switcher (Mocha / Latte) -->
+        <button id="homeThemeToggleBtn" class="btn btn-icon" title="Toggle Comfyppuccin Mocha / Latte Theme" aria-label="Toggle Theme">
+          <svg class="theme-icon-sun hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Intro -->
+    <section class="home-hero">
+      <div class="hero-text-group">
+        <span class="hero-badge">Intervention Tactical Hub</span>
+        <h2 class="hero-heading">High-precision tools calibrated for seamless daily workflow.</h2>
+        <p class="hero-desc">
+          Zero clutter, 100% client-side privacy, and harmonic feedback. Launch audio-alerted schedules, instant file conversions, background extraction, and real-time currency analytics.
+        </p>
+      </div>
+    </section>
+
+    <!-- Speed Dial Cards Section -->
+    <section class="speed-dial-section">
+      <div class="section-header">
+        <h3 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cp-mauve)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Precision Speed Dials
+        </h3>
+        <span class="section-subtitle">Click any dial to launch the tool</span>
+      </div>
+
+      <div class="speed-dial-grid">
+        <!-- 1. Chrono Scheduler -->
+        <a href="scheduler.html" class="speed-dial-card card-scheduler" id="speedDialScheduler">
+          <div class="card-top">
+            <div class="card-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <span class="card-badge badge-active" id="schedulerTaskCountBadge">Active Tool</span>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title">Chrono Scheduler</h4>
+            <p class="card-desc">
+              Schedule manager featuring harmonic Web Audio chimes that alert you right before task deadlines. Includes full CRUD, live countdowns, and filters.
+            </p>
+            <div class="card-features">
+              <span class="feature-pill">Approaching Chimes</span>
+              <span class="feature-pill">Lead Times</span>
+              <span class="feature-pill">CRUD Workflow</span>
+              <span class="feature-pill">Live Countdowns</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-status-text" id="schedulerStatusText">
+              <span class="status-dot"></span> Ready to schedule
+            </span>
+            <span class="launch-btn-label">
+              Launch Scheduler
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2. Reformat (Formerly Conver Falter) -->
+        <a href="reformat.html" class="speed-dial-card card-reformat" id="speedDialReformat">
+          <div class="card-top">
+            <div class="card-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="card-badge">Client-Side Engine</span>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title">Reformat</h4>
+            <p class="card-desc">
+              File alteration & conversion suite. Transform images (PNG, JPEG, WEBP, BMP), documents (DOCX, Text, Markdown to PDF), and data structures locally.
+            </p>
+            <div class="card-features">
+              <span class="feature-pill">PNG ⇄ JPEG ⇄ WEBP</span>
+              <span class="feature-pill">DOCX/Text ➔ PDF</span>
+              <span class="feature-pill">JSON ⇄ CSV</span>
+              <span class="feature-pill">Zero Server Uploads</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-status-text">
+              <span class="status-dot" style="background-color: var(--cp-peach);"></span> Ready to convert
+            </span>
+            <span class="launch-btn-label" style="color: var(--cp-peach);">
+              Launch Reformat
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 3. Vanish (Background Remover) -->
+        <a href="vanish.html" class="speed-dial-card card-vanish" id="speedDialVanish">
+          <div class="card-top">
+            <div class="card-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m4.93 4.93 4.24 4.24"></path>
+                <path d="m14.83 14.83 4.24 4.24"></path>
+                <path d="M14 8h.01"></path>
+                <circle cx="12" cy="12" r="4"></circle>
+              </svg>
+            </div>
+            <span class="card-badge" style="color: var(--cp-pink); border-color: rgba(245, 194, 231, 0.3);">Image Matting</span>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title">Vanish</h4>
+            <p class="card-desc">
+              Instant background removal engine like remove.bg. Automatically segment foreground subjects, adjust tolerance thresholds, and export transparent PNGs.
+            </p>
+            <div class="card-features">
+              <span class="feature-pill">Auto Cutout</span>
+              <span class="feature-pill">Tolerance Slider</span>
+              <span class="feature-pill">Magic Wand</span>
+              <span class="feature-pill">Transparent PNG</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-status-text">
+              <span class="status-dot" style="background-color: var(--cp-pink);"></span> Ready to isolate
+            </span>
+            <span class="launch-btn-label" style="color: var(--cp-pink);">
+              Launch Vanish
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 4. Currency (Fiat Exchange Rates & Trends) -->
+        <a href="currency.html" class="speed-dial-card card-currency" id="speedDialCurrency">
+          <div class="card-top">
+            <div class="card-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <span class="card-badge" style="color: var(--cp-green); border-color: rgba(166, 227, 161, 0.3);">Forex Analytics</span>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title">Currency</h4>
+            <p class="card-desc">
+              Real-time money exchange tracker. Compare Yen (JPY) to Peso (PHP), USD, EUR, inspect the strongest global currencies, and view historical timelines.
+            </p>
+            <div class="card-features">
+              <span class="feature-pill">JPY ⇄ PHP Converter</span>
+              <span class="feature-pill">Strongest Currency</span>
+              <span class="feature-pill">Timeline Graph</span>
+              <span class="feature-pill">Live Rates</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-status-text" id="currencyStatusText">
+              <span class="status-dot" style="background-color: var(--cp-green);"></span> Loading rates...
+            </span>
+            <span class="launch-btn-label" style="color: var(--cp-green);">
+              Launch Currency
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 5. VCurrency (Virtual / Crypto Analytics) -->
+        <a href="vcurrency.html" class="speed-dial-card card-vcurrency" id="speedDialVCurrency">
+          <div class="card-top">
+            <div class="card-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.907 1.042l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H5.86m6.74-7.852c4.348.766 5.423-5.316 1.075-6.082m-1.075 6.082L6.693 10.15m5.907 1.043l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H6.693"></path>
+              </svg>
+            </div>
+            <span class="card-badge" style="color: var(--cp-sky); border-color: rgba(137, 220, 235, 0.3);">Crypto Markets</span>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title">VCurrency</h4>
+            <p class="card-desc">
+              Virtual currency intelligence suite. Track Bitcoin, Ethereum, Solana, and top assets with live valuations in PHP/USD, market rankings, and trend charts.
+            </p>
+            <div class="card-features">
+              <span class="feature-pill">BTC / ETH / SOL</span>
+              <span class="feature-pill">Crypto Converter</span>
+              <span class="feature-pill">Dominance Index</span>
+              <span class="feature-pill">Price Timeline</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-status-text" id="vcurrencyStatusText">
+              <span class="status-dot" style="background-color: var(--cp-sky);"></span> Loading crypto...
+            </span>
+            <span class="launch-btn-label" style="color: var(--cp-sky);">
+              Launch VCurrency
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer">
+      <div>
+        <span>Intervention Suite</span> &mdash; CheyTac Precision &bull; Comfyppuccin Harmony
+      </div>
+      <div class="footer-tags">
+        <span>100% Client-Side</span>
+        <span>&bull;</span>
+        <span>Zero Telemetry</span>
+        <span>&bull;</span>
+        <span>Web Audio Synthesis</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="home.js"></script>
+</body>
+</html>

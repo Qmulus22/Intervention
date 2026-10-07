@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCurrency — Virtual Currency Intelligence &bull; Intervention</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="vcurrency.css">
+</head>
+<body>
+  <div class="app-layout-with-dock">
+    <!-- Collapsible Left Dock (Visible on tool pages) -->
+    <aside id="appDock" class="left-dock" aria-label="Tool Navigation Dock">
+      <div class="dock-header">
+        <a href="index.html" class="dock-brand" title="Intervention Hub">
+          <div class="dock-brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <line x1="12" y1="2.5" x2="12" y2="7"></line>
+              <line x1="12" y1="17" x2="12" y2="21.5"></line>
+              <line x1="2.5" y1="12" x2="7" y2="12"></line>
+              <line x1="17" y1="12" x2="21.5" y2="12"></line>
+              <circle cx="12" cy="12" r="0.9" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <span class="dock-brand-name">Intervention</span>
+        </a>
+      </div>
+
+      <nav class="dock-nav">
+        <!-- 1. Home Hub -->
+        <a href="index.html" class="dock-nav-item" data-tooltip="Home Hub">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Home</span>
+        </a>
+
+        <!-- 2. Chrono Scheduler -->
+        <a href="scheduler.html" class="dock-nav-item" data-tooltip="Chrono Scheduler">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Chrono Scheduler</span>
+        </a>
+
+        <!-- 3. Reformat -->
+        <a href="reformat.html" class="dock-nav-item" data-tooltip="Reformat">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Reformat</span>
+        </a>
+
+        <!-- 4. Vanish -->
+        <a href="vanish.html" class="dock-nav-item" data-tooltip="Vanish (Bg Remover)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m4.93 4.93 4.24 4.24"></path>
+              <path d="m14.83 14.83 4.24 4.24"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+          </div>
+          <span class="dock-label">Vanish</span>
+        </a>
+
+        <!-- 5. Currency -->
+        <a href="currency.html" class="dock-nav-item" data-tooltip="Currency (Fiat)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <span class="dock-label">Currency</span>
+        </a>
+
+        <!-- 6. VCurrency (Active) -->
+        <a href="vcurrency.html" class="dock-nav-item active" data-tooltip="VCurrency (Crypto)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.907 1.042l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H5.86m6.74-7.852c4.348.766 5.423-5.316 1.075-6.082m-1.075 6.082L6.693 10.15m5.907 1.043l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H6.693"></path>
+            </svg>
+          </div>
+          <span class="dock-label">VCurrency</span>
+        </a>
+      </nav>
+
+      <div class="dock-footer">
+        <button id="dockThemeBtn" class="dock-toggle-btn" title="Toggle Comfyppuccin Mocha/Latte" aria-label="Toggle Theme">
+          <svg class="theme-icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button id="dockToggleBtn" class="dock-toggle-btn" title="Expand or shrink dock" aria-label="Toggle Dock">
+          <svg class="dock-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dock-main-content">
+      <div class="vcurrency-container">
+        <!-- Header -->
+        <header class="vcurrency-header">
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div class="brand-vcurrency-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.907 1.042l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H5.86m6.74-7.852c4.348.766 5.423-5.316 1.075-6.082m-1.075 6.082L6.693 10.15m5.907 1.043l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H6.693"></path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="vcurrency-title">VCurrency</h1>
+              <p class="vcurrency-subtitle">Intervention &bull; Virtual Currency Intelligence, Dominance & Trends</p>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="privacy-badge" style="background: rgba(137, 220, 235, 0.15); color: var(--cp-sky); border-color: rgba(137, 220, 235, 0.3); font-size: 0.76rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 9999px;">
+              Live Blockchain Market Feed
+            </span>
+          </div>
+        </header>
+
+        <!-- Highlights Grid -->
+        <section class="crypto-highlights-grid">
+          <!-- Bitcoin -->
+          <div class="crypto-card btc-card">
+            <div class="crypto-card-top">
+              <span class="crypto-name">Bitcoin (BTC)</span>
+              <span id="btcChange" class="crypto-change change-up">+2.45%</span>
+            </div>
+            <span id="btcPrice" class="crypto-price">$64,250</span>
+            <span id="btcFiatSub" class="crypto-fiat-sub">≈ ₱3,678,312 PHP</span>
+          </div>
+
+          <!-- Ethereum -->
+          <div class="crypto-card eth-card">
+            <div class="crypto-card-top">
+              <span class="crypto-name">Ethereum (ETH)</span>
+              <span id="ethChange" class="crypto-change change-up">+1.80%</span>
+            </div>
+            <span id="ethPrice" class="crypto-price">$3,480</span>
+            <span id="ethFiatSub" class="crypto-fiat-sub">≈ ₱199,230 PHP</span>
+          </div>
+
+          <!-- Solana -->
+          <div class="crypto-card">
+            <div class="crypto-card-top">
+              <span class="crypto-name">Solana (SOL)</span>
+              <span id="solChange" class="crypto-change change-up">+5.12%</span>
+            </div>
+            <span id="solPrice" class="crypto-price">$152.40</span>
+            <span class="crypto-fiat-sub">High Speed L1</span>
+          </div>
+
+          <!-- Ripple -->
+          <div class="crypto-card">
+            <div class="crypto-card-top">
+              <span class="crypto-name">Ripple (XRP)</span>
+              <span id="xrpChange" class="crypto-change change-up">+0.95%</span>
+            </div>
+            <span id="xrpPrice" class="crypto-price">$0.5820</span>
+            <span class="crypto-fiat-sub">Cross-border Ledger</span>
+          </div>
+        </section>
+
+        <!-- Analytics Grid: Converter on Left, Ranking on Right -->
+        <section class="v-analytics-grid">
+          <!-- Crypto Converter Box -->
+          <div class="v-card-box">
+            <div class="v-box-title">
+              <span>Virtual Currency Converter</span>
+              <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 500;">Instant Valuation</span>
+            </div>
+
+            <div class="v-converter-form">
+              <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <label for="vAmountInput" style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">Amount</label>
+                <input type="number" id="vAmountInput" class="v-amount-field" value="0.5" min="0" step="any">
+              </div>
+
+              <div class="v-currencies-row">
+                <div class="v-currency-select-col">
+                  <label for="vFromSelect">From</label>
+                  <select id="vFromSelect" class="form-select">
+                    <option value="BTC" selected>BTC &mdash; Bitcoin</option>
+                    <option value="ETH">ETH &mdash; Ethereum</option>
+                    <option value="SOL">SOL &mdash; Solana</option>
+                    <option value="BNB">BNB &mdash; Binance Coin</option>
+                    <option value="XRP">XRP &mdash; Ripple</option>
+                    <option value="ADA">ADA &mdash; Cardano</option>
+                    <option value="DOGE">DOGE &mdash; Dogecoin</option>
+                    <option value="AVAX">AVAX &mdash; Avalanche</option>
+                    <option value="PHP">PHP &mdash; Philippine Peso</option>
+                    <option value="USD">USD &mdash; US Dollar</option>
+                  </select>
+                </div>
+
+                <button id="vSwapBtn" class="v-btn-swap" title="Swap currencies" aria-label="Swap currencies">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="17 1 21 5 17 9"></polyline>
+                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                    <polyline points="7 23 3 19 7 15"></polyline>
+                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                  </svg>
+                </button>
+
+                <div class="v-currency-select-col">
+                  <label for="vToSelect">To</label>
+                  <select id="vToSelect" class="form-select">
+                    <option value="PHP" selected>PHP &mdash; Philippine Peso</option>
+                    <option value="USD">USD &mdash; US Dollar</option>
+                    <option value="JPY">JPY &mdash; Japanese Yen</option>
+                    <option value="EUR">EUR &mdash; Euro</option>
+                    <option value="BTC">BTC &mdash; Bitcoin</option>
+                    <option value="ETH">ETH &mdash; Ethereum</option>
+                    <option value="SOL">SOL &mdash; Solana</option>
+                    <option value="USDT">USDT &mdash; Tether USD</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Calculation Result Display -->
+              <div class="v-conversion-result-box">
+                <span id="vResultLabel" class="v-result-calc-label">0.5 BTC =</span>
+                <span id="vResultValue" class="v-result-calc-value">₱1,839,156.00 PHP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strongest Cryptos Leaderboard -->
+          <div class="v-card-box">
+            <div class="v-box-title">
+              <span>Top Virtual Assets</span>
+              <span style="font-size: 0.74rem; color: var(--text-dim); font-weight: 500;">Market Ranking</span>
+            </div>
+
+            <div id="vLeaderboardList" class="v-leaderboard-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Historical Timeline Graph -->
+        <section class="v-timeline-card">
+          <div class="v-timeline-header">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">
+                Asset Valuation Timeline: <span id="vTimelineAsset" style="color: var(--cp-sky);">BTC ($USD)</span>
+              </h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem;">
+                Historical crypto valuation curve & volatility trends
+              </p>
+            </div>
+
+            <div class="v-timeframe-tabs">
+              <button class="v-time-btn" data-timeframe="7D">7D</button>
+              <button class="v-time-btn active" data-timeframe="30D">30D</button>
+              <button class="v-time-btn" data-timeframe="90D">90D</button>
+              <button class="v-time-btn" data-timeframe="1Y">1Y</button>
+            </div>
+          </div>
+
+          <div class="v-chart-wrapper">
+            <canvas id="vTimelineChart"></canvas>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <script src="dock.js"></script>
+  <script src="vcurrency.js"></script>
+</body>
+</html>
+

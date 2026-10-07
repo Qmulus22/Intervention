@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Intervention — Comfyppuccin Theme Design System
+   Cozy, warm pastel aesthetic inspired by Catppuccin (Mocha & Latte)
+   ========================================================================== */
+
+:root, [data-theme="mocha"] {
+  /* Comfyppuccin Mocha Palette (Default Dark) */
+  --cp-rosewater: #f5e0dc;
+  --cp-flamingo:  #f2cdcd;
+  --cp-pink:      #f5c2e7;
+  --cp-mauve:     #cba6f7;
+  --cp-red:       #f38ba8;
+  --cp-maroon:    #eba0ac;
+  --cp-peach:     #fab387;
+  --cp-yellow:    #f9e2af;
+  --cp-green:     #a6e3a1;
+  --cp-teal:      #94e2d5;
+  --cp-sky:       #89dceb;
+  --cp-sapphire:  #74c7ec;
+  --cp-blue:      #89b4fa;
+  --cp-lavender:  #b4befe;
+
+  /* Surfaces & Backgrounds */
+  --cp-text:      #cdd6f4;
+  --cp-subtext1:  #bac2de;
+  --cp-subtext0:  #a6adc8;
+  --cp-overlay2:  #9399b2;
+  --cp-overlay1:  #7f849c;
+  --cp-overlay0:  #6c7086;
+  --cp-surface2:  #585b70;
+  --cp-surface1:  #45475a;
+  --cp-surface0:  #313244;
+  --cp-base:      #1e1e2e;
+  --cp-mantle:    #181825;
+  --cp-crust:     #11111b;
+
+  /* Semantic UI Tokens */
+  --bg-app:        var(--cp-base);
+  --bg-sidebar:    var(--cp-mantle);
+  --bg-card:       var(--cp-surface0);
+  --bg-card-hover: #3b3d52;
+  --bg-card-subtle:#262637;
+  --bg-input:      var(--cp-mantle);
+  --border-subtle: rgba(205, 214, 244, 0.1);
+  --border-hover:  rgba(205, 214, 244, 0.2);
+  --border-focus:  var(--cp-mauve);
+
+  --text-main:     var(--cp-text);
+  --text-muted:    var(--cp-subtext0);
+  --text-dim:      var(--cp-overlay1);
+
+  --accent-primary:var(--cp-mauve);
+  --accent-hover:  #b584ea;
+  --accent-glow:   rgba(203, 166, 247, 0.22);
+
+  --accent-accent2:var(--cp-lavender);
+  --accent-peach:  var(--cp-peach);
+  --accent-teal:   var(--cp-teal);
+  --accent-green:  var(--cp-green);
+  --accent-red:    var(--cp-red);
+  --accent-yellow: var(--cp-yellow);
+  --accent-sky:    var(--cp-sky);
+
+  --shadow-sm: 0 2px 6px rgba(17, 17, 27, 0.35);
+  --shadow-md: 0 6px 18px rgba(17, 17, 27, 0.45);
+  --shadow-lg: 0 16px 36px rgba(17, 17, 27, 0.65);
+}
+
+[data-theme="latte"] {
+  /* Comfyppuccin Latte Palette (Warm Light) */
+  --cp-rosewater: #dc8a78;
+  --cp-flamingo:  #dd7878;
+  --cp-pink:      #ea76cb;
+  --cp-mauve:     #8839ef;
+  --cp-red:       #d20f39;
+  --cp-maroon:    #e64553;
+  --cp-peach:     #fe640b;
+  --cp-yellow:    #df8e1d;
+  --cp-green:     #40a02b;
+  --cp-teal:      #179299;
+  --cp-sky:       #04a5e5;
+  --cp-sapphire:  #209fb5;
+  --cp-blue:      #1e66f5;
+  --cp-lavender:  #7287fd;
+
+  --cp-text:      #4c4f69;
+  --cp-subtext1:  #5c5f77;
+  --cp-subtext0:  #6c6f85;
+  --cp-overlay2:  #7c7f93;
+  --cp-overlay1:  #8c8fa1;
+  --cp-overlay0:  #9ca0b0;
+  --cp-surface2:  #acb0be;
+  --cp-surface1:  #bcc0cc;
+  --cp-surface0:  #ccd0da;
+  --cp-base:      #eff1f5;
+  --cp-mantle:    #e6e9ef;
+  --cp-crust:     #dce0e8;
+
+  --bg-app:        var(--cp-base);
+  --bg-sidebar:    var(--cp-mantle);
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f7f8fb;
+  --bg-card-subtle:#f0f2f7;
+  --bg-input:      #fdfdfe;
+  --border-subtle: rgba(76, 79, 105, 0.12);
+  --border-hover:  rgba(76, 79, 105, 0.22);
+  --border-focus:  var(--cp-mauve);
+
+  --text-main:     var(--cp-text);
+  --text-muted:    var(--cp-subtext0);
+  --text-dim:      var(--cp-overlay0);
+
+  --accent-primary:var(--cp-mauve);
+  --accent-hover:  #7625dc;
+  --accent-glow:   rgba(136, 57, 239, 0.18);
+
+  --accent-accent2:var(--cp-lavender);
+  --accent-peach:  var(--cp-peach);
+  --accent-teal:   var(--cp-teal);
+  --accent-green:  var(--cp-green);
+  --accent-red:    var(--cp-red);
+  --accent-yellow: var(--cp-yellow);
+  --accent-sky:    var(--cp-sky);
+
+  --shadow-sm: 0 2px 6px rgba(76, 79, 105, 0.06);
+  --shadow-md: 0 6px 18px rgba(76, 79, 105, 0.1);
+  --shadow-lg: 0 16px 36px rgba(76, 79, 105, 0.14);
+}
+
+/* Base Settings */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Typography Helpers */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #11111b;
+  font-weight: 600;
+  box-shadow: 0 3px 10px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 5px 14px var(--accent-glow);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-card);
+  border-color: var(--border-hover);
+}
+
+.btn-icon {
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  padding: 0.55rem;
+  border-radius: 10px;
+}
+
+.btn-icon:hover {
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  border-color: var(--border-hover);
+}
+
+.hidden {
+  display: none !important;
+}
+

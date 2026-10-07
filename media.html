@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media — Video & Audio Link Inspector & Downloader &bull; Intervention</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="dock.css">
+  <link rel="stylesheet" href="media.css">
+</head>
+<body>
+  <div class="app-layout-with-dock">
+    <!-- Collapsible Left Dock (Visible on tool pages) -->
+    <aside id="appDock" class="left-dock" aria-label="Tool Navigation Dock">
+      <div class="dock-header">
+        <a href="index.html" class="dock-brand" title="Intervention Hub">
+          <div class="dock-brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <line x1="12" y1="2.5" x2="12" y2="7"></line>
+              <line x1="12" y1="17" x2="12" y2="21.5"></line>
+              <line x1="2.5" y1="12" x2="7" y2="12"></line>
+              <line x1="17" y1="12" x2="21.5" y2="12"></line>
+              <circle cx="12" cy="12" r="0.9" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <span class="dock-brand-name">Intervention</span>
+        </a>
+      </div>
+
+      <nav class="dock-nav">
+        <!-- 1. Home Hub -->
+        <a href="index.html" class="dock-nav-item" data-tooltip="Home Hub">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Home</span>
+        </a>
+
+        <!-- 2. Chrono Scheduler -->
+        <a href="scheduler.html" class="dock-nav-item" data-tooltip="Chrono Scheduler">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Chrono Scheduler</span>
+        </a>
+
+        <!-- 3. Reformat -->
+        <a href="reformat.html" class="dock-nav-item" data-tooltip="Reformat">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <span class="dock-label">Reformat</span>
+        </a>
+
+        <!-- 4. Vanish -->
+        <a href="vanish.html" class="dock-nav-item" data-tooltip="Vanish (Bg Remover)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m4.93 4.93 4.24 4.24"></path>
+              <path d="m14.83 14.83 4.24 4.24"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+          </div>
+          <span class="dock-label">Vanish</span>
+        </a>
+
+        <!-- 5. Media (Active) -->
+        <a href="media.html" class="dock-nav-item active" data-tooltip="Media (Downloader)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+          <span class="dock-label">Media</span>
+        </a>
+
+        <!-- 6. Currency -->
+        <a href="currency.html" class="dock-nav-item" data-tooltip="Currency (Fiat)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <span class="dock-label">Currency</span>
+        </a>
+
+        <!-- 7. VCurrency -->
+        <a href="vcurrency.html" class="dock-nav-item" data-tooltip="VCurrency (Crypto)">
+          <div class="dock-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.907 1.042l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H5.86m6.74-7.852c4.348.766 5.423-5.316 1.075-6.082m-1.075 6.082L6.693 10.15m5.907 1.043l-.347 1.97m.347-1.97l.347-1.97m-.347 1.97H6.693"></path>
+            </svg>
+          </div>
+          <span class="dock-label">VCurrency</span>
+        </a>
+      </nav>
+
+      <div class="dock-footer">
+        <button id="dockThemeBtn" class="dock-toggle-btn" title="Toggle Comfyppuccin Mocha/Latte" aria-label="Toggle Theme">
+          <svg class="theme-icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button id="dockToggleBtn" class="dock-toggle-btn" title="Expand or shrink dock" aria-label="Toggle Dock">
+          <svg class="dock-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dock-main-content">
+      <div class="media-container">
+        <!-- Header -->
+        <header class="media-header">
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div class="brand-media-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div>
+              <h1 class="media-title">Media</h1>
+              <p class="media-subtitle">Intervention &bull; Universal Video & Audio Link Inspector & Downloader</p>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="privacy-badge" style="background: rgba(180, 190, 254, 0.15); color: var(--cp-lavender); border-color: rgba(180, 190, 254, 0.3); font-size: 0.76rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 9999px;">
+              Direct Stream &bull; Audio Extraction Engine
+            </span>
+          </div>
+        </header>
+
+        <!-- Media Input Card -->
+        <section class="media-input-card">
+          <div class="input-row">
+            <div class="url-input-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cp-lavender)" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <input type="text" id="mediaUrlInput" class="url-input-field" placeholder="Paste direct video or audio link (e.g. https://.../video.mp4 or track.mp3)" autofocus>
+            </div>
+
+            <button id="fetchMediaBtn" class="btn btn-fetch">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Inspect & Play</span>
+            </button>
+          </div>
+
+          <!-- Quick Samples & Local File Option -->
+          <div class="sample-presets-row">
+            <span style="font-weight: 600;">Test Samples:</span>
+            <button class="sample-chip" data-sample="sample-mp4">Big Buck Bunny (MP4 Video)</button>
+            <button class="sample-chip" data-sample="sample-mp3">Synthwave Track (MP3 Audio)</button>
+            <button class="sample-chip" data-sample="sample-webm">Fire Scene (Action MP4)</button>
+
+            <span style="margin-left: auto; display: flex; align-items: center; gap: 0.35rem;">
+              <span>or</span>
+              <label for="mediaLocalInput" class="sample-chip" style="cursor: pointer; color: var(--cp-lavender);">
+                Upload Local File
+              </label>
+              <input type="file" id="mediaLocalInput" accept="video/*,audio/*" class="hidden">
+            </span>
+          </div>
+        </section>
+
+        <!-- Interactive Player Workspace (Hidden until loaded) -->
+        <section id="mediaWorkspace" class="media-workspace hidden">
+          <div class="media-preview-header">
+            <div style="display: flex; align-items: center; gap: 0.65rem;">
+              <span id="mediaTitleEl" style="font-size: 1.1rem; font-weight: 700; color: var(--text-main);">Media Preview</span>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;" id="metaSourceEl">Direct Link</span>
+          </div>
+
+          <!-- Video Viewport -->
+          <div id="videoViewport" class="player-viewport">
+            <video id="videoPlayer" class="video-player" controls preload="metadata"></video>
+          </div>
+
+          <!-- Audio Viewport -->
+          <div id="audioViewport" class="player-viewport hidden">
+            <div class="audio-player-box">
+              <div class="audio-disc-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+
+              <!-- Animated Sound Waveform -->
+              <div class="audio-visualizer-wave">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+              </div>
+
+              <audio id="audioPlayer" class="native-audio-player" controls preload="metadata"></audio>
+            </div>
+          </div>
+
+          <!-- Metadata Bar -->
+          <div class="media-meta-grid">
+            <div class="meta-col">
+              <span class="meta-title">Duration</span>
+              <span id="metaDurationEl" class="meta-value">--:--</span>
+            </div>
+            <div class="meta-col">
+              <span class="meta-title">Format / Resolution</span>
+              <span id="metaFormatEl" class="meta-value">Stream</span>
+            </div>
+            <div class="meta-col">
+              <span class="meta-title">Stream Type</span>
+              <span id="metaTypeEl" class="meta-value">Media</span>
+            </div>
+          </div>
+
+          <!-- Download Configuration Box -->
+          <div class="download-options-box">
+            <div class="download-controls-row">
+              <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+                <label for="targetFormatSelect" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">
+                  Download Target Format
+                </label>
+                <select id="targetFormatSelect" class="form-select">
+                  <option value="mp4" selected>MP4 Video (Original Stream)</option>
+                  <option value="mp3">MP3 Audio (Extract Soundtrack)</option>
+                  <option value="wav">WAV Audio (Uncompressed PCM)</option>
+                </select>
+              </div>
+
+              <!-- Audio Quality / Bitrate (Shown if MP3/WAV) -->
+              <div id="audioBitrateGroup" class="hidden" style="display: flex; flex-direction: column; gap: 0.45rem;">
+                <label for="audioBitrateSelect" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">
+                  Audio Bitrate
+                </label>
+                <select id="audioBitrateSelect" class="form-select">
+                  <option value="320">320 kbps (High Fidelity)</option>
+                  <option value="192" selected>192 kbps (Standard Quality)</option>
+                  <option value="128">128 kbps (Compact Size)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Download Button & Progress -->
+            <div class="download-actions-row">
+              <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1;">
+                <span id="downloadStatusLabel" style="font-size: 0.82rem; color: var(--text-muted);">
+                  Ready to download media
+                </span>
+                <div id="downloadProgressTrack" class="download-progress-track hidden">
+                  <div id="downloadProgressFill" class="download-progress-fill"></div>
+                </div>
+              </div>
+
+              <button id="downloadMediaBtn" class="btn btn-download-media">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download Media</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="dock.js"></script>
+  <script src="media.js"></script>
+</body>
+</html>
+
